@@ -7,9 +7,9 @@ Repository: <https://github.com/E4tHam/tangnano_example>
 
 ## About
 
-The Tang Nano is the famous / infamous $5 FPGA ([learn More Here](https://tangnano.sipeed.com/en/)). This repository is a simple exmple of how to get started with the Tang Nano with FuseSoC.
+The Tang Nano is the famous / infamous $5 FPGA ([learn More Here](https://tangnano.sipeed.com/en/)). This repository is a simple example of how to get started with the Tang Nano with FuseSoC.
 
-This repository is an implementation of a sequential adder. ![Circuit](tangnano/circuit.jpeg)
+This repository is an implementation of a sequential adder. ![Circuit](tangnano/circuit.jpg)
 
 ## Usage
 
@@ -25,7 +25,12 @@ make clean      # remove build files
 
 ## Requirements
 
-* [Apicula](https://github.com/YosysHQ/apicula)
-* [FuseSoC](https://github.com/olofk/fusesoc)
+* [FuseSoC](https://fusesoc.readthedocs.io/en/stable/user/installation.html)
+* [Icarus Verilog](https://iverilog.fandom.com/wiki/Installation_Guide)
+* [GTKWave](http://gtkwave.sourceforge.net/)
+* [Apicula](https://github.com/YosysHQ/apicula#getting-started)
+* [yosys](https://github.com/yosyshq/yosys#setup)
+* [nextpnr-gowin](https://github.com/YosysHQ/nextpnr#nextpnr-gowin)
+* [openFPGALoader](https://github.com/trabucayre/openFPGALoader/blob/master/INSTALL.md#installing-openfpgaloader)
 
-Note: As of 9/12/21, [Edalize](https://github.com/olofk/edalize/) has a bug with the Apicula toolchain. To fix it, after installing FuseSoC, manually add [the apicula-makefile.j2 template](https://github.com/infphyny/edalize-1/blob/master/edalize/templates/apicula/apicula-makefile.j2) to `${Edalize_Install_Dir}/templates/apicula/apicula-makefile.j2`.
+Note: As of 9/12/21, [Edalize](https://github.com/olofk/edalize/) has a bug with the Apicula toolchain. To fix it, after installing FuseSoC, manually add [this `apicula-makefile.j2` template](https://github.com/infphyny/edalize-1/blob/master/edalize/templates/apicula/apicula-makefile.j2) to `${YOUR_EDALIZE_INSTALL_DIR}/templates/apicula/apicula-makefile.j2`.
