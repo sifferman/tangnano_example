@@ -1,0 +1,43 @@
+CAPI=2:
+name: e4tham:tangnano:example:1.0.0
+description: Adder on Tang Nano
+
+filesets:
+  # default
+  rtl:
+    files:
+      - rtl/adder.v: {file_type: verilogSource}
+  # simulation
+  tb:
+    files:
+      - sim/tb.v: {file_type: verilogSource}
+  # synthesis
+  tangnano:
+    files:
+      - tangnano/pinout.cst: {file_type: CST}
+      - tangnano/top.v: {file_type: verilogSource}
+
+
+targets:
+  default: &default
+    filesets:
+      - rtl
+
+  sim: # fusesoc run --target sim e4tham:tangnano:example
+    <<: *default
+    description: Simulate the design
+    default_tool: icarus
+    filesets_append:
+      - tb
+    toplevel: tb
+
+  tangnano:
+    <<: *default
+    description: Synthesize for Tang Nano
+    default_tool: apicula
+    filesets_append:
+      - tangnano
+    tools:
+      apicula:
+        device: GW1N-LV1QN48C6/I5
+    toplevel: top
