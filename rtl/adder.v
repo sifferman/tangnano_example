@@ -10,6 +10,8 @@ module adder #(
     assign  out[0] = a[0] ^ b[0];
     assign cout[0] = a[0] & b[0];
 
+    assign out[INPUT_WIDTH] = cout[INPUT_WIDTH-1];
+
     genvar i;
     generate for ( i = 1; i < INPUT_WIDTH; i = i+1 ) begin : full_adder
         wire abX = a[i] ^ b[i];
@@ -19,7 +21,5 @@ module adder #(
         assign out[i] = abX ^ cout[i-1];
         assign cout[i] = abXcA | abA;
     end endgenerate
-
-    assign out[INPUT_WIDTH] = cout[INPUT_WIDTH-1];
 
 endmodule

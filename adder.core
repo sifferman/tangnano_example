@@ -6,16 +6,16 @@ filesets:
   # default
   rtl:
     files:
-      - rtl/adder.v: {file_type: verilogSource}
+      - rtl/adder.v:          {file_type: verilogSource}
   # simulation
   tb:
     files:
-      - sim/tb.v: {file_type: verilogSource}
+      - sim/tb.v:             {file_type: verilogSource}
   # synthesis
   tangnano:
     files:
-      - tangnano/pinout.cst: {file_type: CST}
-      - tangnano/top.v: {file_type: verilogSource}
+      - tangnano/top.v:       {file_type: verilogSource}
+      - tangnano/pinout.cst:  {file_type: CST}
 
 
 targets:
@@ -31,7 +31,7 @@ targets:
       - tb
     toplevel: tb
 
-  tangnano:
+  tangnano: # fusesoc run --target tangnano e4tham:tangnano:example
     <<: *default
     description: Synthesize for Tang Nano
     default_tool: apicula
