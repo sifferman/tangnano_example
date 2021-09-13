@@ -15,7 +15,7 @@ This repository is an implementation of a sequential adder. ![Circuit](tangnano/
 
 ```bash
 make load       # load the bitstream to the Tang Nano
-make tinyfpga   # generate the bitstream
+make tangnano   # generate the bitstream
 
 make sim        # simulate the testbench
 make view       # open dump in gtkwave

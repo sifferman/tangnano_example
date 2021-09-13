@@ -7,20 +7,25 @@ FS	= build/e4tham_tangnano_example_1.0.0/tangnano-apicula/e4tham_tangnano_exampl
 DUMP	= build/e4tham_tangnano_example_1.0.0/sim-icarus/dump.fst
 
 # ======================================================= #
+# API
+
+.PHONY: load tangnano sim view init clean
+
+# ======================================================= #
 # Synth targets
 
-load: init tinyfpga
-	sudo openFPGALoader -m -b tinyfpga ${FS}
+load: fusesoc.conf ${FS}
+	sudo openFPGALoader -m -b tangnano ${FS}
 
-tinyfpga: init ${FS}
+tangnano: fusesoc.conf ${FS}
 
 # ======================================================= #
 # Sim targets
 
-sim: init
+sim: fusesoc.conf
 	fusesoc run --target sim e4tham:tangnano:example
 
-view: init ${DUMP}
+view: fusesoc.conf ${DUMP}
 	gtkwave ${DUMP} > /dev/null 2>&1 &
 
 # ======================================================= #
@@ -37,10 +42,10 @@ clean:
 fusesoc.conf:
 	fusesoc library add adder . --sync-type=local
 
-${FS}: init $(shell find rtl -type f) $(shell find tangnano -type f)
+${FS}: $(shell find tangnano -type f) fusesoc.conf $(shell find rtl -type f) adder.core
 	fusesoc run --target tangnano e4tham:tangnano:example
 
-${DUMP}:
+${DUMP}: $(shell find sim -type f) fusesoc.conf $(shell find rtl -type f) adder.core
 	fusesoc run --target sim e4tham:tangnano:example
 
 # ======================================================= #
