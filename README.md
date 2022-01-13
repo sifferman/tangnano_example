@@ -32,5 +32,3 @@ make clean      # remove build files
 * [yosys](https://github.com/yosyshq/yosys#setup)
 * [nextpnr-gowin](https://github.com/YosysHQ/nextpnr#nextpnr-gowin)
 * [openFPGALoader](https://github.com/trabucayre/openFPGALoader/blob/master/INSTALL.md#installing-openfpgaloader)
-
-Note: As of 9/12/21, [Edalize](https://github.com/olofk/edalize/) has a bug with the Apicula toolchain. To fix it, after installing FuseSoC, manually add [this Makefile template](https://github.com/infphyny/edalize-1/blob/master/edalize/templates/apicula/apicula-makefile.j2) to "`${YOUR_EDALIZE_INSTALL_DIR}/templates/apicula/apicula-makefile.j2`".
