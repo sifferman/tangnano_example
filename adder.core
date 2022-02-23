@@ -31,6 +31,17 @@ targets:
       - tb
     toplevel: tb
 
+  lint: # fusesoc run --target lint e4tham:tangnano:example
+    <<: *default
+    description: Simulate the design
+    toplevel: adder
+    default_tool: verilator
+    filesets_append:
+      - tangnano
+    tools:
+      verilator:
+        mode: lint-only
+
   tangnano: # fusesoc run --target tangnano e4tham:tangnano:example
     <<: *default
     description: Synthesize for Tang Nano

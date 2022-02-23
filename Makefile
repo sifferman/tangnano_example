@@ -28,6 +28,9 @@ sim: fusesoc.conf
 view: fusesoc.conf ${DUMP}
 	gtkwave ${DUMP} > /dev/null 2>&1 &
 
+lint: $(shell find tangnano -type f) fusesoc.conf $(shell find rtl -type f) adder.core
+	fusesoc run --target lint e4tham:tangnano:example
+
 # ======================================================= #
 # Misc targets
 

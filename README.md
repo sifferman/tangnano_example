@@ -17,6 +17,7 @@ The RTL implements an adder. ![Circuit](tangnano/circuit.jpg)
 make tangnano   # generate the bitstream
 make load       # load the bitstream to the Tang Nano SRAM
 
+make lint       # verify code meets Verilator standards
 make sim        # simulate in icarus
 make view       # open dump in gtkwave
 
@@ -28,6 +29,7 @@ make clean      # remove build files
 * [FuseSoC](https://github.com/olofk/fusesoc)
 * [Icarus Verilog](https://iverilog.fandom.com/wiki/Main_Page)
 * [GTKWave](http://gtkwave.sourceforge.net/)
+* [Verilator](https://www.veripool.org/verilator/)
 * [Apicula](https://github.com/YosysHQ/apicula)
 * [yosys](https://github.com/yosyshq/yosys)
 * [nextpnr-gowin](https://github.com/YosysHQ/nextpnr#nextpnr-gowin)
