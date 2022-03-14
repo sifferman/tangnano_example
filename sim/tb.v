@@ -1,9 +1,4 @@
 
-`ifdef LINTER
-    `include "rtl/adder.v"
-`endif
-
-
 module tb ();
 
 reg [3:0] a, b;

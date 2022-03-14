@@ -1,8 +1,12 @@
 {
-    // verilog
-    "verilog.linting.iverilog.arguments": "-Wall -g2012 -DLINTER=1",
+    // icarus
     "verilog.linting.linter": "iverilog",
-    "verilog.linting.iverilog.runAtFileLocation": false,
+    "verilog.linting.iverilog.arguments": "-g2012 -Wall -DSIM -y rtl -Y .sv",
+
+    // // verilator
+    // "verilog.linting.linter": "verilator",
+    // "verilog.linting.verilator.arguments": "lint.vlt -Wall -DSIM -y rtl",
+    // "verilog.linting.verilator.useWSL": true, // remove if not using WSL
 
     // fusesoc
     "files.associations": {

@@ -1,12 +1,8 @@
 
-`ifdef LINTER
-    `include "rtl/adder.v"
-`endif
-
 module top (
-    input               P39, P40,
-    input               P29, P30,
-    output wire         P31, P32, P33
+    input       P39, P40,
+    input       P29, P30,
+    output wire P31, P32, P33
 );
 
     wire [1:0] a = {~P30,~P29};

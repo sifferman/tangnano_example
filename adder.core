@@ -8,6 +8,9 @@ filesets:
     files:
       - rtl/adder.v:          {file_type: verilogSource}
   # simulation
+  lint:
+    files:
+      - lint.vlt:             {file_type: vlt}
   tb:
     files:
       - sim/tb.v:             {file_type: verilogSource}
@@ -34,6 +37,8 @@ targets:
   lint: # fusesoc run --target lint e4tham:tangnano:example
     <<: *default
     description: Simulate the design
+    filesets_append:
+      - lint
     toplevel: adder
     default_tool: verilator
     filesets_append:
@@ -41,6 +46,7 @@ targets:
     tools:
       verilator:
         mode: lint-only
+        verilator_options: ["-Wall"]
 
   tangnano: # fusesoc run --target tangnano e4tham:tangnano:example
     <<: *default
